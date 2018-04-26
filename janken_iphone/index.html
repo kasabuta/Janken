@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<html xmlns="http://www.w3.org/1999/xhtml"><head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta http-equiv="Content-Script-Type" content="text/javascript" />
+<meta http-equiv="Content-Style-Type" content="text/css" />
+<meta name="GENERATOR" content="JustSystems Homepage Builder Version 21.0.5.0 for Windows" />
+<meta name="viewport" content="width=600" />
+<link rel="stylesheet" href="rpsm.css" type="text/css" />
+<script src="d3.v3.min.js" charset="utf-8"></script>
+<script src="anime.min.js"></script>
+<script type="text/javascript" src="rpsm.js"></script>
+
+
+<title>じゃんけんマシン</title>
+</head>
+<body onload="Reset();" style="font-family:Optima,Arial">
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = 'https://connect.facebook.net/ja_JP/sdk.js#xfbml=1&version=v2.12';
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+<div class="title">
+  <table bgcolor="#ffffff">
+    <tbody>
+      <tr>
+        <td align="center" bgcolor="#ccccff" height="35" width="236"><font size="+2"><b><font size="+0"><font size="+2">AI じゃんけんマシン</font></font></b></font></td>
+        <td align="center" bgcolor="#ffffff" height="35" width="278"><a href="https://twitter.com/share" class="twitter-share-button" data-url="http://www.ton.scphys.kyoto-u.ac.jp/~shino/janken_iphone/" data-size="default" data-count="vertical">Tweet</a>
+  <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+  <div class="fb-share-button" data-href="http://www.ton.scphys.kyoto-u.ac.jp/~shino/janken_iphone/" data-layout="button_count" data-size="small" data-mobile-iframe="true"><a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Fwww.ton.scphys.kyoto-u.ac.jp%2F%7Eshino%2Fjanken_iphone%2F&amp;src=sdkpreparse" class="fb-xfbml-parse-ignore">シェア</a></div>
+<div class="g-plus" data-action="share" data-height="24" data-href="http://www.ton.scphys.kyoto-u.ac.jp/~shino/janken_iphone/"></div>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+<div><font color="#999900" size="+3">どっちが先に30勝するかな？</font></div>
+<div id="results" width="600" height="40"></div>
+<div id="rps" class="clearfix">
+<div class="machine_buttons">
+	<img src="mp.jpg" class="m_paper" value="パー" />
+	<img src="ms.jpg" class="m_scissors" value="チョキ" />
+	<img src="mr.jpg" class="m_rock" value="グー" />
+</div>
+<div class="m_copy">
+	<img src="mp.jpg" class="m_paper_copy" />
+	<img src="ms.jpg" class="m_scissors_copy" />
+	<img src="mr.jpg" class="m_rock_copy" />
+</div>
+<div id="battle_field" class="clearfix">
+<div class="bf-text-top"><font color="#ff00ff" size="-1">マシンの手</font></div>
+<div class="bf-text-bottom"><font color="#0000ff" size="-1">あなたの手（選んでください）</font></div>
+<div id="hands">
+	<div id="win"><img src="win.png" /></div>
+</div>
+<div id="final_result">
+</div>
+<div id="final_result2">
+<form name="retry">
+<input type="button" style="font:80pt Arial;" value="Retry?" onclick="Reset()" />
+</form>
+</div>
+</div>
+<div class="buttons">
+   <input class="rock" type="image" value="グー" onclick="RPS(1)" src="r.jpg" />
+   <input class="scissors" type="image" value="チョキ" onclick="RPS(2)" src="s.jpg" />
+   <input class="paper" type="image" value="パー" onclick="RPS(3)" src="p.jpg" />
+</div>
+<div class="copy">
+	<img src="r.jpg" class="rock_copy" />
+	<img src="s.jpg" class="scissors_copy" />
+	<img src="p.jpg" class="paper_copy" />
+</div>
+</div>
+<!--
+<div id="bar" width="600" height="30"></div>
+-->
+<div class="footer">
+<!--<input type="button" style="font:10.5pt Arial;" value="Reset" onclick="Reset()" /> -->
+<table>
+  <tbody>
+    <tr>
+      <td bgcolor="#cccc99" height="44" width="518"><font size="-1">■解説■ このじゃんけんマシンはあなたが手を選ぶ前に次の手を決めています．じゃんけんを繰り返すうちにあなたの手の癖を読み取って徐々に強くなっていきます．最初に30回勝ったほうが優勝です．勝負しましょう．<br />
+      ■詳細■ <a href="https://www.iwanami.co.jp/book/b264786.html">篠本 滋「情報処理概論 - 予測とシミュレーション」（岩波書店）</a>6．5節「じゃんけんマシンを作ってみよう」 pp101-107． <a href="http://www.ton.scphys.kyoto-u.ac.jp/~shino/janken/">PC用ウェブアプリ</a>．<a href="c.html"> Cプログラム</a>． ウェブアプリに関するお問い合わせやコメントは<a href="mailto:shinomoto@scphys.kyoto-u.ac.jp?Subject=janken">篠本 滋</a>までご連絡ください．</font></td>
+    </tr>
+  </tbody>
+</table>
+<table width="529">
+  <tbody>
+    <tr>
+      <td align="center" width="172"><font size="2pt" face="Arial">version 1.0 : 2018/04/10</font> &#160;</td>
+      <td align="center" width="344"><font size="2pt" face="Arial"><font color="#000000" size="2">The number of visitors since 2018/04/10: <span lang="EN-US" style="font-size:11.0pt;font-family:
+Arial"><img border="0" width="40" height="10" id="_x0000_i1030" src="http://www.ton.scphys.kyoto-u.ac.jp/~shino/counter/count.cgi?janken" /></span></font></font></td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</body>
+</html>

@@ -1,0 +1,131 @@
+#graph{
+	margin-top:0px;
+    margin-left: 0px;
+	height: 550px;
+	width: 350px;
+	float:left;
+}
+/*
+#graph{
+	padding-top:10px;
+    margin-left: 20px;
+	height: 260px;
+	width: 550px;
+	clear:both;
+}
+*/
+#battle_field{
+	margin-top:0px;
+	margin-bottom:0px;
+	height:340px;
+	position:relative;
+	z-index:3;
+}
+#rps{
+	position:relative;
+	height:550px;
+	width:550px;
+	float:left;
+}
+#hands{
+	height:320px;
+	width: 200px;
+	margin-left:150px;
+	float:left;
+	position:relative;
+}
+#final_result{
+	position:absolute;
+	margin-left:173px;
+	z-index:2;
+}
+#final_result img{
+	width:400px;
+	height:400px;
+}
+#final_result2{
+	position:absolute;
+	margin-left:173px;
+	margin-top:350px;
+	display:none;
+}
+.clearfix:after {
+	content: ".";
+	display: block;
+	height: 0;
+	clear: both;
+	visibility: hidden;
+	}
+	.clearfix {display: inline-table;}
+
+.machine_buttons{
+	background-color:rgba(0,0,0,0.3);
+}
+.buttons{
+	background-color:rgba(230,230,0,0.15);
+}
+
+.buttons, .machine_buttons{
+	position:relative;
+    width: 520px;
+    height:95px;
+    padding-top:5px;
+    border: solid 3px #000000;
+	z-index:1;
+}
+.buttons input, .machine_buttons img, .copy img, .m_copy img{
+	width: 80px;
+	height: 80px;
+	margin-left:40px;
+	margin-right:40px;
+}
+.buttons input, .copy img{
+    border: solid 5px #4169e1;
+}
+.machine_buttons img, .m_copy img{
+    border: solid 5px #dc143c;
+}
+.m_copy{
+	position:absolute;
+    width: 520px;
+    height:95px;
+	top:8px;
+	left:3px;
+	z-index:0;
+}
+.copy{
+	position:absolute;
+    width: 520px;
+    height:95px;
+	top:454px;
+	left:3px;
+	z-index:0;
+} 
+
+.button {
+    font:14pt Arial;
+    font-weight: bold;
+    margin-left: 14;
+    margin-right: 0;
+}
+#win img{
+	width:200px;
+	height:200px;
+	opacity:1.0;
+	position:absolute;
+	left:15px;
+}
+#win{
+	z-index:2;
+}
+
+#results{
+	clear:both;
+}
+
+.info {
+    font-size: 10pt;
+    margin-bottom: 0px;
+    float: left;
+    margin-left: 20;
+}
