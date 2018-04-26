@@ -78,7 +78,7 @@ function Reset(){
  svg.append("text").text("　　あいこ　").attr("x",graph_base+graph_width*0.3+10).attr("y",graph_height*0.2+40).attr({'dy': ".35em", 'fill': "black" });
 
  svg.append("text").text("0").attr("x",graph_base-20).attr("y",graph_height-10).attr({'dy': ".35em", 'fill': "black" });
-	document.getElementById("results").innerHTML = "あなたの成績　勝ち:0回、負け:0回、あいこ:0回";
+ document.getElementById("results").innerHTML = "<font color='#6970e9'>勝ち:0回</font>、<font color='#e9473f'>負け:0回</font>、<font color='#319e34'>あいこ:0回</font>";
 
     /* 勝敗表示を消す */
 	resultTimeline.add({
@@ -333,7 +333,7 @@ function ShowResults(plhand,predhand,resultTimeline){
 			break;
 	}
 	var text="";
-	text += "あなたの成績　勝ち:"+results[0][game+1]+"回、負け:"+results[1][game+1]+"回、あいこ:"+results[2][game+1]+"回";
+	text += "<font color='#6970e9'>勝ち:"+results[0][game+1]+"回</font>、<font color='#e9473f'>負け:"+results[1][game+1]+"回</font>、<font color='#319e34'>あいこ:"+results[2][game+1]+"回</font>";
 	document.getElementById("results").innerHTML = text;
 	
 	var Ymax = 0;
@@ -444,7 +444,7 @@ function Youwin(){
 		targets: '#final_result2',
 		opacity:0.0,
 		duration: 0,
-		translateX:-320
+		translateX:0
 	});
 	resultTimeline.add({
 		targets: '#final_result',
@@ -479,7 +479,7 @@ function Youlose(){
 		targets: '#final_result2',
 		opacity:0.0,
 		duration: 0,
-		translateX:-320
+		translateX:0
 	});
 	resultTimeline.add({
 		targets: '#final_result',

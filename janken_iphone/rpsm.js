@@ -64,7 +64,7 @@ function Reset(){
 	predhand=(pre+1)%3+1;
 	var resultTimeline = anime.timeline();
 	// 描画の初期化
-	document.getElementById("results").innerHTML = "<font color='#e9473f'>勝ち:0回</font>、<font color='#6970e9'>負け:0回</font>、<font color='#319e34'>あいこ:0回</font>";
+	document.getElementById("results").innerHTML = "<font color='#6970e9'>勝ち:0回</font>、<font color='#e9473f'>負け:0回</font>、<font color='#319e34'>あいこ:0回</font>";
 
     /* 勝敗表示を消す */
 	resultTimeline.add({
@@ -320,7 +320,7 @@ function ShowResults(plhand,predhand,resultTimeline){
 	}
 	var text="";
 	// あいこ#f6a328
-	text += "<font color='#e9473f'>勝ち:"+results[0][game+1]+"回</font>、<font color='#6970e9'>負け:"+results[1][game+1]+"回</font>、<font color='#319e34'>あいこ:"+results[2][game+1]+"回</font>";
+	text += "<font color='#6970e9'>勝ち:"+results[0][game+1]+"回</font>、<font color='#e9473f'>負け:"+results[1][game+1]+"回</font>、<font color='#319e34'>あいこ:"+results[2][game+1]+"回</font>";
 	document.getElementById("results").innerHTML = text;
 	
 	var Ymax = 0;
@@ -431,7 +431,7 @@ function Youwin(){
 		targets: '#final_result2',
 		opacity:0.0,
 		duration: 0,
-		translateX:-320
+		translateX:0
 	});
 	resultTimeline.add({
 		targets: '#final_result',
@@ -466,7 +466,7 @@ function Youlose(){
 		targets: '#final_result2',
 		opacity:0.0,
 		duration: 0,
-		translateX:-320
+		translateX:0
 	});
 	resultTimeline.add({
 		targets: '#final_result',

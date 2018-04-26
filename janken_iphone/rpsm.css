@@ -17,6 +17,7 @@
 	height:550px;
 	width:550px;
 	float:left;
+	margin-bottom:10px;
 }
 #hands{
 	height:320px;
@@ -45,8 +46,9 @@
 	height:400px;
 }
 #final_result2{
+	float:left;
 	position:absolute;
-	margin-left:173px;
+	margin-left:133px;
 	margin-top:350px;
 	display:none;
 }
@@ -122,11 +124,12 @@
 
 #results{
 	clear:both;
-	font:25pt Arial;
+	font:23pt Arial;
     width: 520px;
     border: solid 3px #82d562;
     background-color: #f3ffff;
     text-align: center;
+	margin-bottom:10px;
 }
 
 .info {

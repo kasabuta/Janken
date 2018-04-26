@@ -26,13 +26,25 @@
 	height:550px;
 	width:550px;
 	float:left;
+	margin-bottom:10px;
 }
 #hands{
 	height:320px;
 	width: 200px;
 	margin-left:150px;
 	float:left;
+	position:absolute;
+}
+
+.bf-text-top{
+	float:left;
 	position:relative;
+}
+.bf-text-bottom{
+	float:left;
+	position:absolute;
+	width:300px;
+	bottom:0;
 }
 #final_result{
 	position:absolute;
@@ -44,8 +56,9 @@
 	height:400px;
 }
 #final_result2{
+	float:left;
 	position:absolute;
-	margin-left:173px;
+	margin-left:133px;
 	margin-top:350px;
 	display:none;
 }
@@ -119,8 +132,16 @@
 	z-index:2;
 }
 
+
 #results{
 	clear:both;
+	font:23pt Arial;
+    width: 520px;
+    border: solid 3px #82d562;
+    background-color: #f3ffff;
+    text-align: center;
+	margin-bottom:10px;
+	margin-top:10px;
 }
 
 .info {
@@ -128,4 +149,8 @@
     margin-bottom: 0px;
     float: left;
     margin-left: 20;
+}
+
+.footer{
+	clear:both;
 }
