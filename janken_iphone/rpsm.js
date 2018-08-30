@@ -18,6 +18,7 @@ var graph_base = 30;
 var Match;	// 勝負が決まるまでの勝ち数
 var game;		// 現在のゲーム数
 var predhand;	// 次の予測手
+var rec_hands="";	// 記録用
 var results=[];	// [0]勝ち、[1]負け、[2]あいこ
 for(var i=0;i<3;i++){
 	results[i]=new Array();
@@ -25,6 +26,7 @@ for(var i=0;i<3;i++){
 }
 var pred=[];
 var weight=[];
+var ini_weight="";
 var record=[];
 for(var i=0;i<3;i++){
 	weight[i] = new Array();
@@ -34,6 +36,7 @@ for(var i=0;i<3;i++){
 		for(var k=0;k<N;k++){
 			record[j][k] = 0;
 			weight[i][j][k] = Math.random() * 4 - 2.0;
+			ini_weight += String(weight[i][j][k]) + " ";
 		}
 	}
 }
@@ -53,10 +56,13 @@ function Reset(){
 	//Match = Number(document.form.match.value);
 	Match = 30;
 	game=0;
+	var rec_hands="";	// 記録用
 	document.getElementById("final_result").innerHTML = '';
+	document.getElementById("final_result3").innerHTML = '';
 	// 適当な値を相手の手の初期値として指定
 	var plhand = Math.floor( Math.random() * 3 + 1 );
 	var pre = perceptron(plhand);
+	rec_hands += String(plhand);
 	/* (pre+1)%3+1はパーセプトロンの予測手predに対して勝つ「手」
 	pre=1(グー)   :(pre+1)%3+1=3(パー)
 	pre=2(チョキ) :(pre+1)%3+1=1(グー)
@@ -93,6 +99,8 @@ function Reset(){
 	});
 	var retry = document.getElementById("final_result2")
 	retry.style.display = "none";
+	var iq = document.getElementById("final_result3")
+	iq.style.display = "none";
 }
 
 
@@ -365,7 +373,7 @@ function ShowResults(plhand,predhand,resultTimeline){
 	if(results[0][game]>=Match){
 		Youwin();
 	}else if(results[1][game]>=Match){
-		Youlose();
+		Youlose(results[0][game]);
 	}
     return(resultTimeline);
 }
@@ -424,8 +432,11 @@ function perceptron(player){
 
 function Youwin(){
 	document.getElementById("final_result").innerHTML = '<img src="youwon.png">';
+	document.getElementById("final_result3").innerHTML = 'あなたのIQは110です！';
 	var retry = document.getElementById("final_result2")
 	retry.style.display = "inline";
+	var iq = document.getElementById("final_result3")
+	iq.style.display = "inline";
 	var resultTimeline = anime.timeline();
 	resultTimeline.add({
 		targets: '#final_result2',
@@ -457,13 +468,23 @@ function Youwin(){
 	});
 }
 
-function Youlose(){
+function Youlose(win){
 	document.getElementById("final_result").innerHTML = '<img src="youvelost.png">';
+	document.getElementById("final_result3").innerHTML = 'あなたのIQは'+ (50 + win*2) +'です！';
 	var retry = document.getElementById("final_result2")
 	retry.style.display = "inline";
+	var iq = document.getElementById("final_result3")
+	iq.style.display = "inline";
 	var resultTimeline = anime.timeline();
 	resultTimeline.add({
 		targets: '#final_result2',
+		opacity:0.0,
+		duration: 0,
+		translateX:0
+	});
+	resultTimeline.add({
+		translateY: -80,
+		targets: '#final_result3',
 		opacity:0.0,
 		duration: 0,
 		translateX:0
@@ -485,10 +506,27 @@ function Youlose(){
 		easing: 'easeInOutQuart'
 	});
 	resultTimeline.add({
-		targets: '#final_result2, #final_result',
+		targets: '#final_result2, #final_result, #final_result3',
 		opacity:1.0,
 		duration: 1000,
 		easing: 'easeInOutQuart'
 	});
 	
 }
+function send_php(){
+	// phpへの値の受け渡し
+		
+	$.ajax({
+		  type: 'POST',
+		  url: '../rpsm.php',
+		  dataType:'text',
+		  data: {
+		    name1 : rec_hands,
+		    name2 : ini_weight
+		  },
+		  success: function(data) {
+		    alert("success");
+		    //location.href = "./test.php";
+		  }
+		});
+	}

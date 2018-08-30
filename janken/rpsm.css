@@ -1,8 +1,8 @@
 #graph{
 	margin-top:0px;
     margin-left: 0px;
-	height: 550px;
-	width: 350px;
+	height: 440px;
+	width: 280px;
 	float:left;
 }
 /*
@@ -17,21 +17,21 @@
 #battle_field{
 	margin-top:0px;
 	margin-bottom:0px;
-	height:340px;
+	height:272px;
 	position:relative;
 	z-index:3;
 }
 #rps{
 	position:relative;
-	height:550px;
-	width:550px;
+	height:440px;
+	width:440px;
 	float:left;
-	margin-bottom:10px;
+	margin-bottom:8px;
 }
 #hands{
-	height:320px;
-	width: 200px;
-	margin-left:150px;
+	height:256px;
+	width: 160px;
+	margin-left:120px;
 	float:left;
 	position:absolute;
 }
@@ -43,23 +43,45 @@
 .bf-text-bottom{
 	float:left;
 	position:absolute;
-	width:300px;
+	width:240px;
 	bottom:0;
 }
 #final_result{
 	position:absolute;
-	margin-left:173px;
+	margin-left:138px;
 	z-index:2;
 }
 #final_result img{
-	width:400px;
-	height:400px;
+	width:320px;
+	height:320px;
 }
 #final_result2{
 	float:left;
 	position:absolute;
-	margin-left:133px;
-	margin-top:350px;
+	margin-left:66px;
+	margin-top:280px;
+	display:none;
+}
+#final_result3{
+    font:25pt Arial;
+    font-weight: bold;
+    text-align: center;
+    background-color: rgba(255,255,255,0.8);
+	width:400px;
+	height:70px;
+    line-height: 70px;
+	margin-top:50px;
+	margin-left:60px;
+    /*
+    line-height: 200px;
+    background-image: url("frame.png");
+    background-repeat: no-repeat;
+    background-size: contain;
+	width:600px;
+	height:200px;
+	*/
+	position:absolute;
+	z-index:2;
 	display:none;
 }
 .clearfix:after {
@@ -80,53 +102,53 @@
 
 .buttons, .machine_buttons{
 	position:relative;
-    width: 520px;
-    height:95px;
-    padding-top:5px;
-    border: solid 3px #000000;
+    width: 418px;
+    height:76px;
+    padding-top:4px;
+    border: solid 2px #000000;
 	z-index:1;
 }
 .buttons input, .machine_buttons img, .copy img, .m_copy img{
-	width: 80px;
-	height: 80px;
-	margin-left:40px;
-	margin-right:40px;
+	width: 64px;
+	height: 64px;
+	margin-left:32px;
+	margin-right:32px;
 }
 .buttons input, .copy img{
-    border: solid 5px #4169e1;
+    border: solid 4px #4169e1;
 }
 .machine_buttons img, .m_copy img{
-    border: solid 5px #dc143c;
+    border: solid 4px #dc143c;
 }
 .m_copy{
 	position:absolute;
-    width: 520px;
-    height:95px;
-	top:8px;
-	left:3px;
+    width: 418px;
+    height:76px;
+	top:6px;
+	left:2px;
 	z-index:0;
 }
 .copy{
 	position:absolute;
-    width: 520px;
-    height:95px;
-	top:454px;
-	left:3px;
+    width: 418px;
+    height:76px;
+	top:363px;
+	left:2px;
 	z-index:0;
 } 
 
 .button {
     font:14pt Arial;
     font-weight: bold;
-    margin-left: 14;
+    margin-left: 11;
     margin-right: 0;
 }
 #win img{
-	width:200px;
-	height:200px;
+	width:160px;
+	height:160px;
 	opacity:1.0;
 	position:absolute;
-	left:15px;
+	left:12px;
 }
 #win{
 	z-index:2;
@@ -135,20 +157,20 @@
 
 #results{
 	clear:both;
-	font:23pt Arial;
-    width: 520px;
+	font:18pt Arial;
+    width: 416px;
     border: solid 3px #82d562;
     background-color: #f3ffff;
     text-align: center;
-	margin-bottom:10px;
-	margin-top:10px;
+	margin-bottom:8px;
+	margin-top:8px;
 }
 
 .info {
-    font-size: 10pt;
+    font-size: 8pt;
     margin-bottom: 0px;
     float: left;
-    margin-left: 20;
+    margin-left: 16;
 }
 
 .footer{

@@ -52,6 +52,28 @@
 	margin-top:350px;
 	display:none;
 }
+#final_result3{
+    font:25pt Arial;
+    font-weight: bold;
+    text-align: center;
+    background-color: rgba(255,255,255,0.8);
+	width:400px;
+	height:70px;
+    line-height: 70px;
+	margin-top:50px;
+	margin-left:140px;
+    /*
+    line-height: 200px;
+    background-image: url("frame.png");
+    background-repeat: no-repeat;
+    background-size: contain;
+	width:600px;
+	height:200px;
+	*/
+	position:absolute;
+	z-index:2;
+	display:none;
+}
 .clearfix:after {
 	content: ".";
 	display: block;
