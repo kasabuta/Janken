@@ -43,6 +43,7 @@ for(var i=0;i<3;i++){
 
 //初期化
 function Reset(){
+	ini_weight=""
 	for(var i=0;i<3;i++){
 		for(var j=0;j<3;j++){
 			for(var k=0;k<N;k++){

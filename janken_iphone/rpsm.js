@@ -43,11 +43,13 @@ for(var i=0;i<3;i++){
 
 //初期化
 function Reset(){
+	ini_weight=""
 	for(var i=0;i<3;i++){
 		for(var j=0;j<3;j++){
 			for(var k=0;k<N;k++){
 				record[j][k] = 0;
 				weight[i][j][k] = Math.random() * 4 - 2.0
+				ini_weight += String(weight[i][j][k]) + " ";
 			}
 		}
 		pred[i] = 0;
@@ -161,6 +163,7 @@ function Retry(){
 }
 
 function RPS(plhand) {
+	rec_hands += String(plhand);
 	var resultTimeline = anime.timeline();
 	resultTimeline = ShowResults(plhand,predhand,resultTimeline);
 	/* 次の手のパーセプトロン予測を前もって行う */
@@ -466,6 +469,7 @@ function Youwin(win,lose){
 		duration: 1000,
 		easing: 'easeInOutQuart'
 	});
+	send_php();
 }
 
 function Youlose(win,lose){
