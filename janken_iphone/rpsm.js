@@ -511,7 +511,7 @@ function Youlose(win,lose){
 		duration: 1000,
 		easing: 'easeInOutQuart'
 	});
-	
+	send_php();
 }
 function send_php(){
 	// phpへの値の受け渡し
