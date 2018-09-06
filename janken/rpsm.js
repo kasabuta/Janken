@@ -177,7 +177,7 @@ function Retry(){
 }
 
 function RPS(plhand) {
-	rec_hands += String(plhand);
+	rec_hands += " " + String(plhand);
 	var resultTimeline = anime.timeline();
 	resultTimeline = ShowResults(plhand,predhand,resultTimeline);
 	/* 次の手のパーセプトロン予測を前もって行う */
