@@ -386,9 +386,9 @@ function ShowResults(plhand,predhand,resultTimeline){
     }
 	game++;
 	if(results[0][game]>=Match){
-		Youwin();
+		Youwin(results[0][game],results[1][game]);
 	}else if(results[1][game]>=Match){
-		Youlose(results[0][game]);
+		Youlose(results[0][game],results[1][game]);
 	}
     return(resultTimeline);
 }
@@ -445,9 +445,9 @@ function perceptron(player){
 	return(maxnum+1);
 }
 
-function Youwin(){
+function Youwin(win,lose){
 	document.getElementById("final_result").innerHTML = '<img src="youwon.png">';
-	document.getElementById("final_result3").innerHTML = 'あなたのIQは110です！';
+	document.getElementById("final_result3").innerHTML = 'あなたのIQは'+ (110 + (win-lose)*2) +'くらいかな？';
 	var retry = document.getElementById("final_result2")
 	retry.style.display = "inline";
 	var iq = document.getElementById("final_result3")
@@ -491,9 +491,9 @@ function Youwin(){
 	send_php();
 }
 
-function Youlose(win){
+function Youlose(win,lose){
 	document.getElementById("final_result").innerHTML = '<img src="youvelost.png">';
-	document.getElementById("final_result3").innerHTML = 'あなたのIQは'+ (50 + win*2) +'です！';
+	document.getElementById("final_result3").innerHTML = 'あなたのIQは'+ (110 + (win-lose)*2) +'くらいかな？';
 	var retry = document.getElementById("final_result2")
 	retry.style.display = "inline";
 	var iq = document.getElementById("final_result3")
