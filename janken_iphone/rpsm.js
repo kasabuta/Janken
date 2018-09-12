@@ -27,6 +27,7 @@ for(var i=0;i<3;i++){
 var pred=[];
 var weight=[];
 var ini_weight="";
+var fin_weight="";
 var record=[];
 for(var i=0;i<3;i++){
 	weight[i] = new Array();
@@ -44,6 +45,7 @@ for(var i=0;i<3;i++){
 //初期化
 function Reset(){
 	ini_weight=""
+	fin_weight="";
 	for(var i=0;i<3;i++){
 		for(var j=0;j<3;j++){
 			for(var k=0;k<N;k++){
@@ -374,8 +376,42 @@ function ShowResults(plhand,predhand,resultTimeline){
     }
 	game++;
 	if(results[0][game]>=Match){
+		// fin_weightを更新
+		var prec=[];
+		for(var i=0;i<3;i++) prec[i]=-1;
+		prec[plhand-1] = 1;
+
+		/* 各予測ユニットの入力と相手の新しい手のコードの符号が
+		一致していない場合に誤り訂正学習を行う */
+		for(var i=0;i<3;i++){
+			if(prec[i]*pred[i] <= 0){
+				for(var j=0;j<3;j++){
+					for(var k=0;k<N;k++){
+						weight[i][j][k] += prec[i]*record[j][k];
+						fin_weight += weight[i][j][k] + " ";
+					}
+				}
+			}
+		}
 		Youwin(results[0][game],results[1][game]);
 	}else if(results[1][game]>=Match){
+		// fin_weightを更新
+		var prec=[];
+		for(var i=0;i<3;i++) prec[i]=-1;
+		prec[plhand-1] = 1;
+
+		/* 各予測ユニットの入力と相手の新しい手のコードの符号が
+		一致していない場合に誤り訂正学習を行う */
+		for(var i=0;i<3;i++){
+			if(prec[i]*pred[i] <= 0){
+				for(var j=0;j<3;j++){
+					for(var k=0;k<N;k++){
+						weight[i][j][k] += prec[i]*record[j][k];
+						fin_weight += weight[i][j][k] + " ";
+					}
+				}
+			}
+		}
 		Youlose(results[0][game],results[1][game]);
 	}
     return(resultTimeline);
@@ -526,7 +562,8 @@ function send_php(){
 		  dataType:'text',
 		  data: {
 		    name1 : rec_hands,
-		    name2 : ini_weight
+		    name2 : ini_weight,
+		    name3 : fin_weight
 		  },
 		  success: function(data) {
 		    alert("success");

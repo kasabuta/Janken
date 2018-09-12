@@ -9,9 +9,16 @@
     } else {
         echo "値が入力されていません";
     }
+    if (isset($_POST["name3"])) {
+        $fin_weight = $_POST['name3'];
+    } else {
+        echo "値が入力されていません";
+    }
     $file = "rpsm.csv";
     file_put_contents($file, $ini_weight, FILE_APPEND);
     file_put_contents($file, ",", FILE_APPEND);
     file_put_contents($file, $rec_hands, FILE_APPEND);
+    file_put_contents($file, ",", FILE_APPEND);
+    file_put_contents($file, $fin_weight, FILE_APPEND);
     file_put_contents($file, "\n", FILE_APPEND);
     ?>
