@@ -397,12 +397,10 @@ function ShowResults(plhand,predhand,resultTimeline){
 		/* 各予測ユニットの入力と相手の新しい手のコードの符号が
 		一致していない場合に誤り訂正学習を行う */
 		for(var i=0;i<3;i++){
-			if(prec[i]*pred[i] <= 0){
-				for(var j=0;j<3;j++){
-					for(var k=0;k<N;k++){
-						weight[i][j][k] += prec[i]*record[j][k];
-						fin_weight += String(weight[i][j][k]) + " ";
-					}
+			for(var j=0;j<3;j++){
+				for(var k=0;k<N;k++){
+					weight[i][j][k] += prec[i]*record[j][k];
+					fin_weight += String(weight[i][j][k]) + " ";
 				}
 			}
 		}
@@ -416,12 +414,10 @@ function ShowResults(plhand,predhand,resultTimeline){
 		/* 各予測ユニットの入力と相手の新しい手のコードの符号が
 		一致していない場合に誤り訂正学習を行う */
 		for(var i=0;i<3;i++){
-			if(prec[i]*pred[i] <= 0){
-				for(var j=0;j<3;j++){
-					for(var k=0;k<N;k++){
-						weight[i][j][k] += prec[i]*record[j][k];
-						fin_weight += String(weight[i][j][k]) + " ";
-					}
+			for(var j=0;j<3;j++){
+				for(var k=0;k<N;k++){
+					weight[i][j][k] += prec[i]*record[j][k];
+					fin_weight += String(weight[i][j][k]) + " ";
 				}
 			}
 		}
