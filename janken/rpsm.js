@@ -401,7 +401,7 @@ function ShowResults(plhand,predhand,resultTimeline){
 				for(var j=0;j<3;j++){
 					for(var k=0;k<N;k++){
 						weight[i][j][k] += prec[i]*record[j][k];
-						fin_weight += weight[i][j][k] + " ";
+						fin_weight += String(weight[i][j][k]) + " ";
 					}
 				}
 			}
@@ -420,7 +420,7 @@ function ShowResults(plhand,predhand,resultTimeline){
 				for(var j=0;j<3;j++){
 					for(var k=0;k<N;k++){
 						weight[i][j][k] += prec[i]*record[j][k];
-						fin_weight += weight[i][j][k] + " ";
+						fin_weight += String(weight[i][j][k]) + " ";
 					}
 				}
 			}
