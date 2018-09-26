@@ -19,7 +19,7 @@ var Match;	// 勝負が決まるまでの勝ち数
 var game;		// 現在のゲーム数
 var predhand;	// 次の予測手
 var rec_hands="";	// 記録用
-var results=[];	// [0]勝ち、[1]負け、[2]あいこ
+var results=[];	// [0]勝ち, [1]負け, [2]あいこ
 for(var i=0;i<3;i++){
 	results[i]=new Array();
 	results[i][0]=0;
@@ -74,7 +74,7 @@ function Reset(){
 	predhand=(pre+1)%3+1;
 	var resultTimeline = anime.timeline();
 	// 描画の初期化
-	document.getElementById("results").innerHTML = "<font color='#6970e9'>勝ち:0回</font>、<font color='#e9473f'>負け:0回</font>、<font color='#319e34'>あいこ:0回</font>";
+	document.getElementById("results").innerHTML = "<font color='#6970e9'>Win: 0</font>, <font color='#e9473f'>Lose: 0</font>, <font color='#319e34'>Draw: 0</font>";
 
     /* 勝敗表示を消す */
 	resultTimeline.add({
@@ -133,7 +133,7 @@ function Retry(){
 	var svg = wrap.append("svg").attr("width",graph_width).attr("height",graph_height);
  svg.append("rect").attr("x", graph_base).attr("y", 0).attr("width", graph_base+graph_width).attr("height", graph_height).attr("fill","#ffffff").attr("stroke","#000000").attr("stroke-width",5);
  //svg.append("line").attr("x1", graph_base).attr("x2", graph_base+graph_width).attr("y1", graph_height*0.1).attr("y2",graph_height*0.1).attr("stroke","#ff0055").attr("stroke-width",2);
-	document.getElementById("results").innerHTML = "<font color='#00A0E9'>勝ち:0回</font>、<font color='#E60012'>負け:0回</font>、<font color='#ffD700'>あいこ:0回</font>";
+	document.getElementById("results").innerHTML = "<font color='#00A0E9'>Win: 0</font>, <font color='#E60012'>Lose: 0</font>, <font color='#ffD700'>Draw: 0</font>";
 
     /* 勝敗表示を消す */
 	resultTimeline.add({
@@ -333,7 +333,7 @@ function ShowResults(plhand,predhand,resultTimeline){
 	}
 	var text="";
 	// あいこ#f6a328
-	text += "<font color='#6970e9'>勝ち:"+results[0][game+1]+"回</font>、<font color='#e9473f'>負け:"+results[1][game+1]+"回</font>、<font color='#319e34'>あいこ:"+results[2][game+1]+"回</font>";
+	text += "<font color='#6970e9'>Win: "+results[0][game+1]+"</font>, <font color='#e9473f'>Lose: "+results[1][game+1]+"</font>, <font color='#319e34'>Draw: "+results[2][game+1]+"</font>";
 	document.getElementById("results").innerHTML = text;
 	
 	var Ymax = 0;
@@ -366,11 +366,11 @@ function ShowResults(plhand,predhand,resultTimeline){
     svg.append("rect").attr("x", graph_base).attr("y", 0).attr("width", graph_width).attr("height", graph_height).attr("fill","none").attr("stroke","#000000").attr("stroke-width",5);
     // ラベル
     svg.append("line").attr("x1", graph_base+graph_width*0.1).attr("x2", graph_base+graph_width*0.3).attr("y1", graph_height*0.2).attr("y2",graph_height*0.2).attr("stroke","#00A0E9").attr("stroke-width",8);
-    svg.append("text").text("あなたの勝ち").attr("x",graph_base+graph_width*0.3+10).attr("y",graph_height*0.2).attr({'dy': ".35em", 'fill': "black" });
+    svg.append("text").text("your wins").attr("x",graph_base+graph_width*0.3+10).attr("y",graph_height*0.2).attr({'dy': ".35em", 'fill': "black" });
     svg.append("line").attr("x1", graph_base+graph_width*0.1).attr("x2", graph_base+graph_width*0.3).attr("y1", graph_height*0.2+20).attr("y2",graph_height*0.2+20).attr("stroke","#E60012").attr("stroke-width",8);
-    svg.append("text").text("マシンの勝ち").attr("x",graph_base+graph_width*0.3+10).attr("y",graph_height*0.2+20).attr({'dy': ".35em", 'fill': "black" });
+    svg.append("text").text("janken m wins").attr("x",graph_base+graph_width*0.3+10).attr("y",graph_height*0.2+20).attr({'dy': ".35em", 'fill': "black" });
     svg.append("line").attr("x1", graph_base+graph_width*0.1).attr("x2", graph_base+graph_width*0.3).attr("y1", graph_height*0.2+40).attr("y2",graph_height*0.2+40).attr("stroke","#ffD700").attr("stroke-width",8);
-    svg.append("text").text("　　あいこ　").attr("x",graph_base+graph_width*0.3+10).attr("y",graph_height*0.2+40).attr({'dy': ".35em", 'fill': "black" });
+    svg.append("text").text("  draws  ").attr("x",graph_base+graph_width*0.3+10).attr("y",graph_height*0.2+40).attr({'dy': ".35em", 'fill': "black" });
     for(var i=0;i<=Math.ceil(Ymax/10);i++){
         svg.append("text").text(String(i*10)).attr("x",graph_base-20).attr("y",graph_height-10-graph_height*0.9/Ymax*10*i).attr({'dy': ".35em", 'fill': "black" });
     }
@@ -467,7 +467,7 @@ function perceptron(player){
 
 function Youwin(win,lose){
 	document.getElementById("final_result").innerHTML = '<img src="youwon.png">';
-	document.getElementById("final_result3").innerHTML = 'あなたのIQは'+ (110 + (win-lose)*2) +'くらいかな？';
+	document.getElementById("final_result3").innerHTML = 'Your IQ might be about  '+ (110 + (win-lose)*2);
 	var retry = document.getElementById("final_result2")
 	retry.style.display = "inline";
 	var iq = document.getElementById("final_result3")
@@ -506,7 +506,7 @@ function Youwin(win,lose){
 
 function Youlose(win,lose){
 	document.getElementById("final_result").innerHTML = '<img src="youvelost.png">';
-	document.getElementById("final_result3").innerHTML = 'あなたのIQは'+ (110 + (win-lose)*2) +'くらいかな？';
+	document.getElementById("final_result3").innerHTML = 'Your IQ might be about  '+ (110 + (win-lose)*2);
 	var retry = document.getElementById("final_result2")
 	retry.style.display = "inline";
 	var iq = document.getElementById("final_result3")

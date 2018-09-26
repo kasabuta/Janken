@@ -10,7 +10,7 @@
 <script src="anime.min.js"></script>
 <script type="text/javascript" src="rpsm.js"></script>
 
-<title>Janken Machine</title>
+<title>じゃんけんマシン</title>
 </head>
 <body onload="Reset();" style="font-family:Optima,Arial">
 <div id="fb-root"></div>
@@ -25,10 +25,10 @@
   <table bgcolor="#ffffff">
     <tbody>
       <tr>
-        <td align="center" height="36" bgcolor="#ccccff" width="248"><b><font size="-1"><font size="+1">AI Rock-Scissor-Paper (Janken) machine</font></font></b></td>
+        <td align="center" height="36" bgcolor="#ccccff" width="248"><font size="+1"><b><font size="+0"><font size="+2">AI じゃんけんマシン</font></font></b></font></td>
         <td align="center" bgcolor="#ffffff" width="385"><font size="2pt" face="Arial">　</font><a href="https://twitter.com/share" class="twitter-share-button" data-url="http://www.ton.scphys.kyoto-u.ac.jp/~shino/janken_iphone/" data-size="default" data-count="vertical">Tweet</a>
   <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
-  <div class="fb-share-button" data-href="http://www.ton.scphys.kyoto-u.ac.jp/~shino/janken_iphone/" data-layout="button_count" data-size="small" data-mobile-iframe="true"><a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Fwww.ton.scphys.kyoto-u.ac.jp%2F%7Eshino%2Fjanken_iphone%2F&amp;src=sdkpreparse" class="fb-xfbml-parse-ignore">Share </a></div>
+  <div class="fb-share-button" data-href="http://www.ton.scphys.kyoto-u.ac.jp/~shino/janken_iphone/" data-layout="button_count" data-size="small" data-mobile-iframe="true"><a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Fwww.ton.scphys.kyoto-u.ac.jp%2F%7Eshino%2Fjanken_iphone%2F&amp;src=sdkpreparse" class="fb-xfbml-parse-ignore">シェア</a></div>
 <div class="g-plus" data-action="share" data-height="24" data-href="http://www.ton.scphys.kyoto-u.ac.jp/~shino/janken_iphone/"></div> </td>
       </tr>
     </tbody>
@@ -37,7 +37,7 @@
 <table>
   <tbody>
       <tr>
-        <td bgcolor="#ffffcc" width="637" height="45"><font size="-1">Janken Machine has you all figured out before you play your next hand. It analyzes your hands, and tries to figure out slight biases you have. The more you play it, the stronger it gets. Whoever reaches 30 wins first wins. Let the games begin!</font>&#160;</td>
+        <td bgcolor="#ffffcc" width="637" height="45"><font size="-1">このじゃんけんマシンはあなたが手を選ぶ前に次の手を決めています．じゃんけんを繰り返すうちにあなたの手の癖を読み取って徐々に強くなっていきます．最初に30回勝ったほうが優勝です．勝負しましょう．</font>&#160;</td>
       </tr>
     </tbody>
   </table>
@@ -55,8 +55,8 @@
 	<img src="mr.jpg" class="m_rock_copy" />
 </div>
 <div id="battle_field" class="clearfix">
-<div class="bf-text-top"><font color="#ff00ff" size="-1">Machine's move</font></div>
-<div class="bf-text-bottom"><font color="#0000ff" size="-1">your move: select one</font></div>
+<div class="bf-text-top"><font color="#ff00ff" size="-1">マシンの手</font></div>
+<div class="bf-text-bottom"><font color="#0000ff" size="-1">あなたの手（選んでください）</font></div>
 <div id="hands">
 	<div id="win"><img src="win.png" /></div>
 </div>
@@ -86,23 +86,19 @@
 <!--
 <div id="bar" width="600" height="30"></div>
 -->
-<div class="footer"></div>
+<div class=footer></div>
 <!--<input type="button" style="font:10.5pt Arial;" value="Reset" onclick="Reset()" /> -->
 <table>
   <tbody>
     <tr>
-      <td bgcolor="#cccc99" width="637" height="45"><font size="-1">references: <a href="https://www.iwanami.co.jp/book/b264786.html">Shigeru Shinomoto - Information Processing Theory: Prediction and Simulations
-      Iwanami-Shoten Publishers.</a> Building a Janken Machine pp 101-107. This web app was constructed in
-      collaboration with Kazuki Nakamura and Kensuke Arai. For any questions
-      or comments, contact <a href="mailto:shinomoto@scphys.kyoto-u.ac.jp?Subject=janken">Shigeru Shinomoto here</a><a href="https://www.iwanami.co.jp/book/b264786.html">.</a></font><br />
-      <font size="-1">[1] <a href="http://www.ton.scphys.kyoto-u.ac.jp/~shino/janken_j/">Japanese version</a> [2] <a href="http://www.ton.scphys.kyoto-u.ac.jp/~shino/janken_iphone/">Smart phone app</a>. [3] <a href="c.html">C code</a><a href="https://www.iwanami.co.jp/book/b264786.html">. </a></font></td>
+      <td bgcolor="#cccc99" width="637" height="45"><font size="-1">【参考文献】 <a href="https://www.iwanami.co.jp/book/b264786.html">篠本 滋「情報処理概論 - 予測とシミュレーション」（岩波書店）</a>6．5節「じゃんけんマシンを作ってみよう」 pp101-107． <a href="http://www.ton.scphys.kyoto-u.ac.jp/~shino/janken_iphone/">スマホ版アプリ</a>．<a href="c.html"> Cプログラム</a>． ウェブアプリに関するお問い合わせやコメントは<a href="mailto:shinomoto@scphys.kyoto-u.ac.jp?Subject=janken">篠本 滋</a>までご連絡ください．</font></td>
     </tr>
   </tbody>
 </table>
 <table width="545">
   <tbody>
     <tr>
-      <td align="center"><font size="2pt" face="Arial">Version 2.2 : 2018/09/24</font>&#160;</td>
+      <td align="center"><font size="2pt" face="Arial">Version 2.1 : 2018/09/14</font>&#160;</td>
       <td align="center"><font size="2pt" face="Arial"><font color="#000000" size="2">The number of visitors since 2018/04/10: <span lang="EN-US" style="font-size:11.0pt;font-family:
 Arial"><img border="0" width="40" height="10" id="_x0000_i1030" src="http://www.ton.scphys.kyoto-u.ac.jp/~shino/counter/count.cgi?janken" /></span></font></font></td>
     </tr>
